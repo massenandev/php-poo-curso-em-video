@@ -21,6 +21,7 @@
             # $l[3]->status();
             # $l[4]->status();
             # $l[5]->status();
+            // a luta, de fato...
             $luta = new Luta();
             $luta->marcarLuta($l[0], $l[1]);
             $luta->lutar();
