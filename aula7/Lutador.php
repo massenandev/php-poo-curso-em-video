@@ -32,7 +32,7 @@ class Lutador
         echo "<p>CHEGOU A HORA! O lutador " . $this->getNome();
         echo " veio diretamente de " . $this->getNacionalidade();
         echo " tem " . $this->getIdade() . " anos e pesa " . $this->getPeso() . "Kg";
-        echo "<br>Ele tem " . $this->getVitorias() . " vitórias";
+        echo "<br>Ele tem " . $this->getVitorias() . " vitórias, ";
         echo $this->getDerrotas() . " derrotas e " . $this->getEmpates() . " empates";
     }
 

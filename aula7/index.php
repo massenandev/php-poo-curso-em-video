@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>POO</title>
 </head>
 <body>
     <pre>
@@ -23,10 +23,12 @@
             # $l[5]->status();
             // a luta, de fato...
             $luta = new Luta();
-            $luta->marcarLuta($l[0], $l[1]);
+            $luta->marcarLuta($l[4], $l[5]);
             $luta->lutar();
-            $l[0]->status();
-            $l[1]->status();
+            //$l[0]->status();
+            //$l[1]->status();
+
+
         ?>
     </pre>
 </body>
