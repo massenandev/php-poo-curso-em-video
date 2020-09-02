@@ -7,8 +7,22 @@ class Pessoa
     private $idade;
     private $sexo;
 
+    /**
+     * Pessoa constructor.
+     * @param $nome
+     * @param $idade
+     * @param $sexo
+     */
+    public function __construct($nome, $idade, $sexo)
+    {
+        $this->nome = $nome;
+        $this->idade = $idade;
+        $this->sexo = $sexo;
+    }
+
+
     public function fazerAniver(){
-        $this->setIdade($this->getIdade() + 1);
+        $this->idade++;
     }
 
     /**

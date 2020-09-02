@@ -1,6 +1,7 @@
 <?php
 
-
+require_once 'Pessoa.php';
+require_once 'Publicacao.php';
 class Livro implements Publicacao
 {
     private $titulo;
@@ -10,8 +11,26 @@ class Livro implements Publicacao
     private $aberto;
     private $leitor;
 
-    public function detalhes(){
+    /**
+     * Livro constructor.
+     * @param $titulo
+     * @param $autor
+     * @param $totPaginas
+     * @param $leitor
+     */
+    public function __construct($titulo, $autor, $totPaginas, $leitor)
+    {
+        $this->titulo = $titulo;
+        $this->autor = $autor;
+        $this->aberto = false;
+        $this->pagAtual = 0;
+        $this->totPaginas = $totPaginas;
+        $this->leitor = $leitor;
+    }
 
+    public function detalhes(){
+        echo "<hr>Livro " . $this->getTitulo() . " escrito por " . $this->getAutor();
+        echo ". Páginas: " . $this->getTotPaginas() . ". Página atual: " . $this->getPagAtual() . ". Leitor: " . $this->getLeitor()->getNome();
     }
 
     public function abrir()
@@ -24,10 +43,14 @@ class Livro implements Publicacao
         $this->setAberto(false);
     }
 
-    public function folhear()
+    public function folhear($p)
     {
         if($this->aberto == true){
-            echo "Folheando...";
+            if ($p > $this->totPaginas){
+                $this->pagAtual = 0;
+            } else {
+                $this->pagAtual = $p;
+            }
         } else {
             echo "Impossível folhear. Livro fechado.";
         }
@@ -35,12 +58,22 @@ class Livro implements Publicacao
 
     public function avancarPag()
     {
-        $this->setPagAtual($this->getPagAtual() + 1);
+        if($this->pagAtual >= $this->totPaginas){
+            echo "Fim do livro.";
+        } else if($this->pagAtual < $this->totPaginas){
+            $this->pagAtual++;
+        } else {
+            echo "Não pode avançar mais. Fim do livro.";
+        }
     }
 
     public function voltarPag()
     {
-        $this->setPagAtual($this->getPagAtual() - 1);
+        if($this->pagAtual <= $this->totPaginas){
+            $this->pagAtual--;
+        } else if($this->pagAtual > $this->totPaginas){
+            echo "Não pode voltar mais. Fim do livro.";
+        }
     }
 
     /**
